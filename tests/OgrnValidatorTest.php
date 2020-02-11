@@ -10,6 +10,7 @@ namespace BoShurik\Constraints\Tests;
 use BoShurik\Constraints\Ogrn;
 use BoShurik\Constraints\OgrnValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class OgrnValidatorTest extends ConstraintValidatorTestCase
 {

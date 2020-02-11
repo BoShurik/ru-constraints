@@ -10,6 +10,7 @@ namespace BoShurik\Constraints\Tests;
 use BoShurik\Constraints\Snils;
 use BoShurik\Constraints\SnilsValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class SnilsValidatorTest extends ConstraintValidatorTestCase
 {

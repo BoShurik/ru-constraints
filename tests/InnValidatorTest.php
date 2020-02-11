@@ -10,6 +10,7 @@ namespace BoShurik\Constraints\Tests;
 use BoShurik\Constraints\Inn;
 use BoShurik\Constraints\InnValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class InnValidatorTest extends ConstraintValidatorTestCase
 {

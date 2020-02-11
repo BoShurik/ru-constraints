@@ -10,6 +10,7 @@ namespace BoShurik\Constraints\Tests;
 use BoShurik\Constraints\Kpp;
 use BoShurik\Constraints\KppValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class KppValidatorTest extends ConstraintValidatorTestCase
 {

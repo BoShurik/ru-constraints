@@ -12,6 +12,7 @@ use BoShurik\Constraints\RsValidator;
 use BoShurik\Constraints\Tests\Fixtures\BikModel;
 use Symfony\Component\Validator\Exception\LogicException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class RsValidatorTest extends ConstraintValidatorTestCase
 {
