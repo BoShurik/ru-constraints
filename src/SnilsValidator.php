@@ -49,7 +49,7 @@ class SnilsValidator extends ConstraintValidator
 
         $sum = 0;
         for ($i = 0; $i < 9; $i++) {
-            $sum += (int) $value{$i} * (9 - $i);
+            $sum += (int) $value[$i] * (9 - $i);
         }
         $check = 0;
         if ($sum < 100) {

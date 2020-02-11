@@ -48,7 +48,7 @@ class OgrnipValidator extends ConstraintValidator
         }
 
         $n15 = (int) substr(bcsub(substr($value, 0, -1), bcmul(bcdiv(substr($value, 0, -1), '13', 0), '13')), -1);
-        if ($n15 !== (int) $value{14}) {
+        if ($n15 !== (int) $value[14]) {
             $this->context
                 ->buildViolation($constraint->checksumMessage)
                 ->setCode(Ogrnip::INVALID_CHECKSUM_ERROR)

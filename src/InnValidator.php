@@ -50,7 +50,7 @@ class InnValidator extends ConstraintValidator
 
         if ($length === 10) {
             $n10 = $this->checksum($value, [2, 4, 10, 3, 5, 9, 4, 6, 8]);
-            if ($n10 !== (int) $value{9}) {
+            if ($n10 !== (int) $value[9]) {
                 $this->context
                     ->buildViolation($constraint->checksumMessage)
                     ->setCode(Inn::INVALID_CHECKSUM_ERROR)
@@ -62,7 +62,7 @@ class InnValidator extends ConstraintValidator
         } else {
             $n11 = $this->checksum($value, [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
             $n12 = $this->checksum($value, [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
-            if (($n11 !== (int) $value{10}) || ($n12 !== (int) $value{11})) {
+            if (($n11 !== (int) $value[10]) || ($n12 !== (int) $value[11])) {
                 $this->context
                     ->buildViolation($constraint->checksumMessage)
                     ->setCode(Inn::INVALID_CHECKSUM_ERROR)
@@ -83,7 +83,7 @@ class InnValidator extends ConstraintValidator
     {
         $n = 0;
         foreach ($coefficients as $i => $k) {
-            $n += $k * (int) $value{$i};
+            $n += $k * (int) $value[$i];
         }
         return $n % 11 % 10;
     }
