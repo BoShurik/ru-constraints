@@ -74,7 +74,7 @@ class KsValidator extends ConstraintValidator
         $checkString = '0' . substr((string) $bik, -5, 2) . $value;
         $checksum = 0;
         foreach ([7, 1, 3, 7, 1, 3, 7, 1, 3, 7, 1, 3, 7, 1, 3, 7, 1, 3, 7, 1, 3, 7, 1] as $i => $k) {
-            $checksum += $k * ((int) $checkString{$i} % 10);
+            $checksum += $k * ((int) $checkString[$i] % 10);
         }
 
         if ($checksum % 10 !== 0) {
