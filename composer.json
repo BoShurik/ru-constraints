@@ -1,6 +1,6 @@
 {
-    "name": "boshurik/symfony-constraints",
-    "description": "Symfony constraints",
+    "name": "boshurik/ru-constraints",
+    "description": "Symfony constraints for Russian specific IDs",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,12 +15,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "BoShurik\\Constraints\\": "src/"
+            "BoShurik\\Constraints\\Ru\\": "src/"
         }
     },
     "autoload-dev":  {
         "psr-4": {
-            "BoShurik\\Constraints\\Tests\\": "tests/"
+            "BoShurik\\Constraints\\Ru\\Tests\\": "tests/"
         }
     },
     "require": {
@@ -29,7 +29,7 @@
         "symfony/validator": "^4.2|^5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "symfony/phpunit-bridge": "^4.2|^5.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit"

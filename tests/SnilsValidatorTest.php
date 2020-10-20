@@ -5,10 +5,10 @@
  * Time: 15:32
  */
 
-namespace BoShurik\Constraints\Tests;
+namespace BoShurik\Constraints\Ru\Tests;
 
-use BoShurik\Constraints\Snils;
-use BoShurik\Constraints\SnilsValidator;
+use BoShurik\Constraints\Ru\Snils;
+use BoShurik\Constraints\Ru\SnilsValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 

@@ -5,7 +5,7 @@
  * Time: 14:19
  */
 
-namespace BoShurik\Constraints;
+namespace BoShurik\Constraints\Ru;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;

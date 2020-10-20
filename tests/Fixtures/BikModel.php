@@ -5,7 +5,7 @@
  * Time: 16:41
  */
 
-namespace BoShurik\Constraints\Tests\Fixtures;
+namespace BoShurik\Constraints\Ru\Tests\Fixtures;
 
 class BikModel
 {

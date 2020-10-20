@@ -5,11 +5,11 @@
  * Time: 15:32
  */
 
-namespace BoShurik\Constraints\Tests;
+namespace BoShurik\Constraints\Ru\Tests;
 
-use BoShurik\Constraints\Rs;
-use BoShurik\Constraints\RsValidator;
-use BoShurik\Constraints\Tests\Fixtures\BikModel;
+use BoShurik\Constraints\Ru\Rs;
+use BoShurik\Constraints\Ru\RsValidator;
+use BoShurik\Constraints\Ru\Tests\Fixtures\BikModel;
 use Symfony\Component\Validator\Exception\LogicException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;

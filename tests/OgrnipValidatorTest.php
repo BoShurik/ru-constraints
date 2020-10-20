@@ -5,10 +5,10 @@
  * Time: 15:32
  */
 
-namespace BoShurik\Constraints\Tests;
+namespace BoShurik\Constraints\Ru\Tests;
 
-use BoShurik\Constraints\Ogrnip;
-use BoShurik\Constraints\OgrnipValidator;
+use BoShurik\Constraints\Ru\Ogrnip;
+use BoShurik\Constraints\Ru\OgrnipValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 

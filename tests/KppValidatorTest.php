@@ -5,10 +5,10 @@
  * Time: 15:31
  */
 
-namespace BoShurik\Constraints\Tests;
+namespace BoShurik\Constraints\Ru\Tests;
 
-use BoShurik\Constraints\Kpp;
-use BoShurik\Constraints\KppValidator;
+use BoShurik\Constraints\Ru\Kpp;
+use BoShurik\Constraints\Ru\KppValidator;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 

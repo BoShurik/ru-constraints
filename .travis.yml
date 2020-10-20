@@ -12,3 +12,5 @@ matrix:
 
 install:
     - composer install
+
+script: vendor/bin/simple-phpunit
