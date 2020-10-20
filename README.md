@@ -19,35 +19,35 @@ services:
         autowire: true
         autoconfigure: true
 
-    BoShurik\Constraints\BikValidator: ~
-    BoShurik\Constraints\InnValidator: ~
-    BoShurik\Constraints\KppValidator: ~
-    BoShurik\Constraints\KsValidator: ~
-    BoShurik\Constraints\OgrnipValidator: ~
-    BoShurik\Constraints\OgrnValidator: ~
-    BoShurik\Constraints\RsValidator: ~
-    BoShurik\Constraints\SnilsValidator: ~
+    BoShurik\Constraints\Ru\BikValidator: ~
+    BoShurik\Constraints\Ru\InnValidator: ~
+    BoShurik\Constraints\Ru\KppValidator: ~
+    BoShurik\Constraints\Ru\KsValidator: ~
+    BoShurik\Constraints\Ru\OgrnipValidator: ~
+    BoShurik\Constraints\Ru\OgrnValidator: ~
+    BoShurik\Constraints\Ru\RsValidator: ~
+    BoShurik\Constraints\Ru\SnilsValidator: ~
 ```
 
 without `autoconfigure`:
 
 ```yaml
 services:
-    BoShurik\Constraints\BikValidator:
+    BoShurik\Constraints\Ru\BikValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\InnValidator:
+    BoShurik\Constraints\Ru\InnValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\KppValidator:
+    BoShurik\Constraints\Ru\KppValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\KsValidator:
+    BoShurik\Constraints\Ru\KsValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\OgrnipValidator:
+    BoShurik\Constraints\Ru\OgrnipValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\OgrnValidator:
+    BoShurik\Constraints\Ru\OgrnValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\RsValidator:
+    BoShurik\Constraints\Ru\RsValidator:
         tags: ['validator.constraint_validator']
-    BoShurik\Constraints\SnilsValidator:
+    BoShurik\Constraints\Ru\SnilsValidator:
         tags: ['validator.constraint_validator']
 ```
 
