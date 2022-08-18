@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Ks extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = '0cf6ce0b-40d4-4275-b3ad-ac8dd447d2ed';

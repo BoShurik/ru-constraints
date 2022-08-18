@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Inn extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = '2d61d696-31af-458f-a81c-1bb97cf34a98';

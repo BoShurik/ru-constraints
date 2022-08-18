@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Bik extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = '2a6efd25-e8a9-42c2-b49f-fe0bb96e7c0f';

@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Snils extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = '637a1f13-6dde-4c30-8e79-04f85db99391';

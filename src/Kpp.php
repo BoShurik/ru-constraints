@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Kpp extends Constraint
 {
     const INVALID_LENGTH_ERROR = 'cd361248-c25e-4b27-83d2-bd2de908d7e5';

@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Ogrn extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = '6681bb57-c132-4d7a-abdd-a20ff626af35';
