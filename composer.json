@@ -29,9 +29,9 @@
         "symfony/validator": "^4.2|^5.0"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^4.2|^5.0"
+        "symfony/phpunit-bridge": "^6.0"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/simple-phpunit"
     }
 }
