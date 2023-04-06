@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
+#[\Attribute]
 class Ogrnip extends Constraint
 {
     const INVALID_CHARACTERS_ERROR = 'ed045b90-e842-4e2a-b321-47ce56b0b0f5';
