@@ -33,7 +33,7 @@ class Rs extends Constraint
     /**
      * @inheritDoc
      */
-    public function getRequiredOptions()
+    public function getRequiredOptions(): array
     {
         return ['bikField'];
     }

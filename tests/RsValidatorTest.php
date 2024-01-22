@@ -10,13 +10,14 @@ namespace BoShurik\Constraints\Ru\Tests;
 use BoShurik\Constraints\Ru\Rs;
 use BoShurik\Constraints\Ru\RsValidator;
 use BoShurik\Constraints\Ru\Tests\Fixtures\BikModel;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\LogicException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class RsValidatorTest extends ConstraintValidatorTestCase
 {
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         return new RsValidator();
     }
