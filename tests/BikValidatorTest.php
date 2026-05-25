@@ -9,6 +9,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 
 use BoShurik\Constraints\Ru\Bik;
 use BoShurik\Constraints\Ru\BikValidator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -41,9 +42,7 @@ class BikValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new \stdClass(), new Bik());
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value)
     {
         $this->validator->validate($value, new Bik());
@@ -51,15 +50,13 @@ class BikValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $code)
     {
-        $constraint = new Bik([
-            'charactersMessage' => 'message',
-            'lengthMessage' => 'message',
-        ]);
+        $constraint = new Bik(
+            charactersMessage: 'message',
+            lengthMessage: 'message',
+        );
 
         $this->validator->validate($value, $constraint);
 
@@ -69,7 +66,7 @@ class BikValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['000000000'],
@@ -78,7 +75,7 @@ class BikValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['qwerty', Bik::INVALID_CHARACTERS_ERROR],

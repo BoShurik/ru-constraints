@@ -9,6 +9,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 
 use BoShurik\Constraints\Ru\Ogrn;
 use BoShurik\Constraints\Ru\OgrnValidator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -41,9 +42,7 @@ class OgrnValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new \stdClass(), new Ogrn());
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value)
     {
         $this->validator->validate($value, new Ogrn());
@@ -51,16 +50,14 @@ class OgrnValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $code)
     {
-        $constraint = new Ogrn([
-            'charactersMessage' => 'message',
-            'lengthMessage' => 'message',
-            'checksumMessage' => 'message',
-        ]);
+        $constraint = new Ogrn(
+            charactersMessage: 'message',
+            lengthMessage: 'message',
+            checksumMessage: 'message',
+        );
 
         $this->validator->validate($value, $constraint);
 
@@ -70,7 +67,7 @@ class OgrnValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['0000000000000'],
@@ -78,7 +75,7 @@ class OgrnValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['qwerty', Ogrn::INVALID_CHARACTERS_ERROR],

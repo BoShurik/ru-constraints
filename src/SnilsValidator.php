@@ -17,7 +17,7 @@ class SnilsValidator extends ConstraintValidator
      * @param mixed $value
      * @param Snils|Constraint $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (null === $value || '' === $value) {
             return;

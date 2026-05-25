@@ -9,6 +9,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 
 use BoShurik\Constraints\Ru\Snils;
 use BoShurik\Constraints\Ru\SnilsValidator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -41,9 +42,7 @@ class SnilsValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new \stdClass(), new Snils());
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value)
     {
         $this->validator->validate($value, new Snils());
@@ -51,16 +50,14 @@ class SnilsValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $code)
     {
-        $constraint = new Snils([
-            'charactersMessage' => 'message',
-            'lengthMessage' => 'message',
-            'checksumMessage' => 'message',
-        ]);
+        $constraint = new Snils(
+            charactersMessage: 'message',
+            lengthMessage: 'message',
+            checksumMessage: 'message',
+        );
 
         $this->validator->validate($value, $constraint);
 
@@ -70,7 +67,7 @@ class SnilsValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['00000000000'],
@@ -78,7 +75,7 @@ class SnilsValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['qwerty', Snils::INVALID_CHARACTERS_ERROR],

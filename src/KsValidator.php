@@ -7,6 +7,7 @@
 
 namespace BoShurik\Constraints\Ru;
 
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\LogicException;
@@ -18,7 +19,7 @@ class KsValidator extends ConstraintValidator
      * @param mixed $value
      * @param Ks|Constraint $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (null === $value || '' === $value) {
             return;
@@ -53,13 +54,7 @@ class KsValidator extends ConstraintValidator
             throw new LogicException('Can\'t access validated object to get BIK value');
         }
 
-        // TODO: symfony/property-access?
-        $method = $constraint->bikField;
-        if (method_exists($object, $method)) {
-            $bik = $object->$method();
-        } else {
-            $bik = $object->$method;
-        }
+        $bik = PropertyAccess::createPropertyAccessor()->getValue($object, $constraint->bikField);
 
         if ($bik === null) {
             $this->context

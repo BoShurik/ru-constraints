@@ -13,20 +13,16 @@ jobs:
                 os:
                     - ubuntu-latest
                 php:
-                    - "7.2"
-                    - "7.3"
-                    - "7.4"
-                    - "8.0"
-                    - "8.1"
                     - "8.2"
                     - "8.3"
+                    - "8.4"
                 deps:
                     - latest
                     - lowest
         steps:
             -
                 name: Checkout
-                uses: actions/checkout@v2.3.4
+                uses: actions/checkout@v4
 
             -
                 name: Install PHP
@@ -41,7 +37,7 @@ jobs:
 
             -
                 name: Cache dependencies installed with composer
-                uses: actions/cache@v2
+                uses: actions/cache@v4
                 with:
                     path: ${{ env.COMPOSER_CACHE_DIR }}
                     key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
@@ -63,4 +59,4 @@ jobs:
 
             -
                 name: Run tests with phpunit
-                run: vendor/bin/simple-phpunit --colors=always
+                run: vendor/bin/simple-phpunit

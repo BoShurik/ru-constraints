@@ -17,7 +17,7 @@ class OgrnipValidator extends ConstraintValidator
      * @param mixed $value
      * @param Ogrnip|Constraint $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (null === $value || '' === $value) {
             return;

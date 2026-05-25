@@ -17,7 +17,7 @@ class KppValidator extends ConstraintValidator
      * @param mixed $value
      * @param Kpp|Constraint $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (null === $value || '' === $value) {
             return;

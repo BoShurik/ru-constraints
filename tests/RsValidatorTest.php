@@ -10,6 +10,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 use BoShurik\Constraints\Ru\Rs;
 use BoShurik\Constraints\Ru\RsValidator;
 use BoShurik\Constraints\Ru\Tests\Fixtures\BikModel;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\LogicException;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
@@ -61,9 +62,7 @@ class RsValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value, $bik)
     {
         $this->setObject(new BikModel($bik));
@@ -72,9 +71,7 @@ class RsValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $bik, $code)
     {
         $this->setObject(new BikModel($bik));
@@ -86,7 +83,7 @@ class RsValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['00000000000000000000', '000000000'],
@@ -94,7 +91,7 @@ class RsValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['0000000000000000000', '000000000', Rs::INVALID_LENGTH_ERROR],
@@ -120,12 +117,12 @@ class RsValidatorTest extends ConstraintValidatorTestCase
 
     private function createConstraint(): Rs
     {
-        return new Rs([
-            'bikField' => 'bik',
-            'charactersMessage' => 'message',
-            'lengthMessage' => 'message',
-            'bikMessage' => 'message',
-            'checksumMessage' => 'message',
-        ]);
+        return new Rs(
+            bikField: 'bik',
+            charactersMessage: 'message',
+            lengthMessage: 'message',
+            bikMessage: 'message',
+            checksumMessage: 'message',
+        );
     }
 }

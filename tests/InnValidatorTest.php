@@ -9,6 +9,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 
 use BoShurik\Constraints\Ru\Inn;
 use BoShurik\Constraints\Ru\InnValidator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -41,9 +42,7 @@ class InnValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new \stdClass(), new Inn());
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value)
     {
         $this->validator->validate($value, new Inn());
@@ -51,16 +50,14 @@ class InnValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $code)
     {
-        $constraint = new Inn([
-            'charactersMessage' => 'message',
-            'lengthMessage' => 'message',
-            'checksumMessage' => 'message',
-        ]);
+        $constraint = new Inn(
+            charactersMessage: 'message',
+            lengthMessage: 'message',
+            checksumMessage: 'message',
+        );
 
         $this->validator->validate($value, $constraint);
 
@@ -70,7 +67,7 @@ class InnValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['0000000000'],
@@ -80,7 +77,7 @@ class InnValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['qwerty', Inn::INVALID_CHARACTERS_ERROR],

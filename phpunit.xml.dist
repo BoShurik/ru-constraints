@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit backupGlobals="false"
-         backupStaticAttributes="false"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
          bootstrap="vendor/autoload.php"
@@ -18,11 +14,12 @@
 
   <php>
     <ini name="error_reporting" value="-1" />
+    <env name="SYMFONY_PHPUNIT_VERSION" value="11.5" />
   </php>
 
-  <filter>
-      <whitelist>
-          <directory>./src/</directory>
-      </whitelist>
-  </filter>
+  <source>
+    <include>
+      <directory>./src/</directory>
+    </include>
+  </source>
 </phpunit>

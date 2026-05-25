@@ -9,6 +9,7 @@ namespace BoShurik\Constraints\Ru\Tests;
 
 use BoShurik\Constraints\Ru\Kpp;
 use BoShurik\Constraints\Ru\KppValidator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedValueException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -41,9 +42,7 @@ class KppValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new \stdClass(), new Kpp());
     }
 
-    /**
-     * @dataProvider getValid
-     */
+    #[DataProvider('getValid')]
     public function testValid($value)
     {
         $this->validator->validate($value, new Kpp());
@@ -51,15 +50,13 @@ class KppValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @dataProvider getInvalid
-     */
+    #[DataProvider('getInvalid')]
     public function testInvalid($value, $code)
     {
-        $constraint = new Kpp([
-            'lengthMessage' => 'message',
-            'formatMessage' => 'message',
-        ]);
+        $constraint = new Kpp(
+            lengthMessage: 'message',
+            formatMessage: 'message',
+        );
 
         $this->validator->validate($value, $constraint);
 
@@ -69,7 +66,7 @@ class KppValidatorTest extends ConstraintValidatorTestCase
         ;
     }
 
-    public function getValid()
+    public static function getValid()
     {
         return [
             ['000000000'],
@@ -79,7 +76,7 @@ class KppValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    public function getInvalid()
+    public static function getInvalid()
     {
         return [
             ['01234567', Kpp::INVALID_LENGTH_ERROR],
